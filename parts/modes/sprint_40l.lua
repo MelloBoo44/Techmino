@@ -9,13 +9,15 @@ return {
     comp=function(a,b) return a[1]<b[1] or a[1]==b[1] and a[2]<b[2] end,
     getRank=function(P)
         if P.stat.row<40 then return end
+			P.stat.time=P.stat.time+ARMTime
+			ARMTime=0
         local T=P.stat.time
         return
-            T<=26 and 5 or
-            T<=36 and 4 or
-            T<=52.6 and 3 or
-            T<=92.9 and 2 or
-            T<=183 and 1 or
+            T<=80 and 5 or
+            T<=95 and 4 or
+            T<=110 and 3 or
+            T<=135 and 2 or
+            T<=200 and 1 or
             0
     end,
 }

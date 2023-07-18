@@ -8,13 +8,14 @@ return {
 	end,
 	task=function(P)
 	levelARM=1
+	ARMTime=0
 	end,
     hook_drop=function(P)
         if P.stat.row>=40 then
             P:win('finish')
         end
 		
-		if math.random(1,7)==1 then
+		if P.stat.piece%7==0 then
 			SCN.go('app_arithmetic') 
 		end
     end

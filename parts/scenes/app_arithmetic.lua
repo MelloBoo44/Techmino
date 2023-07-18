@@ -338,6 +338,8 @@ end
 local function check(val)
     if val==answer then
         levelARM=levelARM+1
+		ARMTime=ARMTime+time
+		print(ARMTime)
 		SCN.back()
         input=""
         inputTime=0
@@ -370,7 +372,7 @@ function scene.enter()
     reset()
     drawing=false
     numScale=1
-    BGM.play('truth')
+    --BGM.play('truth')
 end
 
 function scene.keyDown(key,isRep)

@@ -811,7 +811,7 @@ return {
             vk="Virtual Key Layout",
 
             couldSave="Cloud Save (CAUTION: TESTING)",
-            notLogin="[Login to access cloud save]",
+            notLogin="Not supported in Techmino WTF",
             upload="Upload to Cloud",
             download="Download from Cloud",
         },

@@ -491,19 +491,9 @@ do
 end
 
 -- Initialize language lib
-LANG.init('zh',
+LANG.init('en',
     {
-        zh=require'parts.language.lang_zh',
-        zh_trad=require'parts.language.lang_zh_trad',
         en=require'parts.language.lang_en',
-        fr=require'parts.language.lang_fr',
-        es=require'parts.language.lang_es',
-        pt=require'parts.language.lang_pt',
-        id=require'parts.language.lang_id',
-        ja=require'parts.language.lang_ja',
-        symbol=require'parts.language.lang_symbol',
-        zh_code=require'parts.language.lang_zh_code',
-        vi=require'parts.language.lang_vi',
         -- 1. Add language file to LANG folder;
         -- 2. Require it;
         -- 3. Add a button in parts/scenes/lang.lua;

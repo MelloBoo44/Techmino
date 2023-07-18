@@ -27,7 +27,7 @@ function love.conf(t)
     end
 
     t.identity=identity -- Saving folder
-    t.version="11.4"
+    t.version="wtfv1"
     t.gammacorrect=false
     t.appendidentity=true -- Search files in source then in save directory
     t.accelerometerjoystick=false -- Accelerometer=joystick on ios/android

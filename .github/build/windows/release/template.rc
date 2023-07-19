@@ -9,12 +9,12 @@ FILETYPE 0x1
         BLOCK "040904B0"
         {
             VALUE "CompanyName", "26F Studio"
-            VALUE "FileDescription", "Techmino"
+            VALUE "FileDescription", "Techmino WTF"
             VALUE "FileVersion", "@Version"
-            VALUE "InternalName", "Techmino"
+            VALUE "InternalName", "Techmino WTF"
             VALUE "LegalCopyright", "Copyright © 2019-2023 26F-Studio. Some Rights Reserved."
-            VALUE "OriginalFilename", "Techmino.exe"
-            VALUE "ProductName", "Techmino"
+            VALUE "OriginalFilename", "Techmino WTF.exe"
+            VALUE "ProductName", "Techmino WTF"
             VALUE "ProductVersion", "@Version"
         }
     }

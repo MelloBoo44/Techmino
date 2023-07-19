@@ -34,7 +34,7 @@ jobs:
         shell: lua {0}
         run: |
           local version = require "version"
-          os.execute('echo "app-name=Techmino" >> $GITHUB_OUTPUT')
+          os.execute('echo "app-name=Techmino WTF" >> $GITHUB_OUTPUT')
           os.execute('echo "version-name=' .. version.name .. '" >> $GITHUB_OUTPUT')
           os.execute('echo "version-string=' .. version.string:gsub("%a", "") .. '" >> $GITHUB_OUTPUT')
           os.execute('echo "version-code=' .. tostring(version.code) .. '" >> $GITHUB_OUTPUT')

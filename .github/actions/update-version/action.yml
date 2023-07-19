@@ -16,7 +16,7 @@ runs:
           exit(0)
         with open('conf.lua', 'r+', encoding='utf-8') as file:
           data = file.read()
-          data = data.replace("t.identity='Techmino'--Saving folder", "t.identity='Techmino_Snapshot'--Saving folder")
+          data = data.replace("t.identity='Techmino_WTF'--Saving folder", "t.identity='Techmino_WTF_Snapshot'--Saving folder")
           file.seek(0)
           file.truncate()
           file.flush()

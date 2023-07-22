@@ -817,7 +817,7 @@ return {
         },
     },
     modes={
-        ['sprint_10l']=     {"Sprint",            "10L WTF",            "Clear 10 lines!\nX rank required."},
+        ['sprint_10l']=     {"Sprint",            "10L",            "Clear 10 lines!\n(dont die)"},
         ['sprint_20l']=     {"Sprint",            "20L",            "Clear 20 lines!"},
         ['sprint_40l']=     {"Sprint",            "40L MATH",            "Clear 40 lines while doing math!"},
         ['sprint_100l']=    {"Sprint",            "100L",           "Clear 100 lines!"},

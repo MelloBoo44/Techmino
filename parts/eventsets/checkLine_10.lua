@@ -10,5 +10,8 @@ return {
         if P.stat.row>=10 then
             P:win('finish')
         end
-    end
+    end,
+	hook_die=function(P)
+		error("skill issue")
+	end
 }

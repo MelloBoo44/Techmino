@@ -1,7 +1,7 @@
 return {
     env={
         drop=60,lock=60,
-        eventSet='checkLine_40',
+        eventSet='checkLine_Math',
         bg='bg2',bgm='race',
     },
     score=function(P) return {P.stat.time,P.stat.piece} end,

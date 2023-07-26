@@ -1,7 +1,20 @@
 return {
-    {name='sprint_10l',    x=0,         y=0,        size=40,shape=1,icon="sprint1",     unlock={'sprint_40l','sprintAtk','secret_grade','solo_u','backfire_u','round_u'}},
-    -- {name='sprint_20l',    x=-200,      y=200,      size=50,shape=1,icon="sprint1"},
-    {name='sprint_40l',    x=0,         y=-300,     size=40,shape=1,icon="sprint2"},
+    {name='sprint_10l',    x=0,         y=0,        size=40,shape=1,icon="sprint1",         unlock={'sprint_40l','lockout','stack_WTF','scanner_l'}},
+	
+	{name='sprint_40l',    x=0,         y=-300,     size=40,shape=1,icon="sprint2",         unlock={'sprintAtk'}},
+	{name='sprintAtk',     x=0,       y=-600,     size=40,shape=1,icon="sprint2"},
+
+	{name='lockout',       x=0,       y=300,     size=40,shape=1,icon="bigbang",   unlock={'secret_grade','round_u'}},
+	{name='secret_grade',  x=-150,      y=600,     size=40,shape=1,icon="secret_grade"},
+	{name='round_u',       x=150,     y=600,     size=40,shape=1,icon="round"},
+	
+	{name='scanner_l',     x=-300,      y=0,      size=40,shape=1,icon="sprint3",         unlock={'solo_u','backfire_u'}},
+	{name='solo_u',        x=-600,     y=150,    size=40,shape=1,icon="solo"},
+	{name='backfire_u',    x=-600,      y=-150,      size=40,shape=1,icon="backfire"},
+	
+	{name='stack_WTF',   x=300,      y=0,        size=40,shape=1,icon="mess",            unlock={'rhythm_u'}},
+	{name='rhythm_u',    x=600,      y=0,        size=40,shape=1,icon="rhythm"},
+	-- {name='sprint_20l',    x=-200,      y=200,      size=50,shape=1,icon="sprint1"},
     -- {name='sprint_100l',   x=-400,      y=200,      size=50,shape=1,icon="sprint2"},
     -- {name='sprint_400l',   x=-600,      y=200,      size=40,shape=1,icon="sprint3"},
     -- {name='sprint_1000l',  x=-800,      y=200,      size=40,shape=1,icon="sprint3"},
@@ -9,9 +22,6 @@ return {
     -- {name='sprint123',     x=160,       y=-400,     size=40,shape=1,icon="sprint_tri"},
     -- {name='sprintMPH',     x=200,       y=-260,     size=40,shape=3,icon="sprint2"},
     -- {name='sprintPenta',   x=130,       y=-140,     size=40,shape=3,icon="sprint_pento"},
-
-    {name='secret_grade',  x=-200,      y=-400,     size=40,shape=1,icon="secret_grade"},
-
     -- {name='drought_n',     x=-600,      y=400,      size=40,shape=1,icon="drought"},
     -- {name='drought_l',     x=-800,      y=400,      size=40,shape=1,icon="drought"},
 
@@ -32,7 +42,6 @@ return {
     -- {name='solo_n',        x=-800,      y=-1000,    size=40,shape=1,icon="solo"},
     -- {name='solo_h',        x=-1000,     y=-1000,    size=40,shape=1,icon="solo"},
     -- {name='solo_l',        x=-1200,     y=-1000,    size=40,shape=1,icon="solo"},
-    {name='solo_u',        x=-1400,     y=-1000,    size=40,shape=1,icon="solo"},
 
     -- {name='techmino49_e',  x=-1100,     y=-1200,    size=40,shape=1,icon="t49"},
     -- {name='techmino49_h',  x=-1100,     y=-1400,    size=40,shape=1,icon="t49"},
@@ -45,7 +54,6 @@ return {
     -- {name='round_n',       x=-800,      y=-800,     size=40,shape=1,icon="round"},
     -- {name='round_h',       x=-1000,     y=-800,     size=40,shape=1,icon="round"},
     -- {name='round_l',       x=-1200,     y=-800,     size=40,shape=1,icon="round"},
-    {name='round_u',       x=-1400,     y=-800,     size=40,shape=1,icon="round"},
 
     -- {name='big_n',         x=-400,      y=-400,     size=40,shape=1,icon="big"},
     -- {name='big_h',         x=-600,      y=-400,     size=40,shape=1,icon="big"},
@@ -104,8 +112,6 @@ return {
     -- {name='pc_l',          x=1100,      y=-140,     size=40,shape=3,icon="pc"},
     -- {name='pc_inf',        x=1100,      y=-280,     size=40,shape=2,icon="pc"},
 
-    {name='sprintAtk',     x=500,       y=-280,     size=40,shape=1,icon="sprint2"},
-
     -- {name='sprintEff',     x=360,       y=-150,     size=40,shape=1,icon="sprint2"},
 
     -- {name='tech_n',        x=400,       y=20,       size=40,shape=1,icon="tech"},
@@ -125,7 +131,6 @@ return {
     -- {name='backfire_n',    x=650,       y=320,      size=40,shape=1,icon="backfire"},
     -- {name='backfire_h',    x=850,       y=320,      size=40,shape=1,icon="backfire"},
     -- {name='backfire_l',    x=1050,      y=320,      size=40,shape=3,icon="backfire"},
-    {name='backfire_u',    x=1250,      y=320,      size=35,shape=2,icon="backfire"},
 
     -- {name='zen',           x=-1000,     y=-600,     size=40,shape=1,icon="zen"},
     -- {name='ultra',         x=-1200,     y=-600,     size=40,shape=1,icon="ultra"},

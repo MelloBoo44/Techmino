@@ -920,10 +920,14 @@ return {
         ['sprintEff']=      {"Sprint",            "Efficiency",     "Send more attack in 40lines!"},
         ['zen']=            {'Zen',               "200",            "A 200-line run without a time limit"},
         ['ultra']=          {'Ultra',             "EXTRA",          "A 2-minute score attack"},
-        ['infinite']=       {"Infinite",           "",              "Just a sandbox"},
-        ['infinite_dig']=   {"Infinite: Dig",      "",              "Dig-diggin’-dug"},
-        ['marathon_inf']=   {"Marathon",           "INFINITE",      "Infinite marathon."},
-
+        ['infinite']=       {"Infinite",          "",               "Just a sandbox"},
+        ['infinite_dig']=   {"Infinite: Dig",     "",               "Dig-diggin’-dug"},
+        ['marathon_inf']=   {"Marathon",          "INFINITE",       "Infinite marathon."},
+        ['lockout']=        {"Lockout",           "",               "Clear randomly selected types of clears quickly!"},
+		['rhythm_u']=       {"Rhythm",            "ULTIMATE",       "Pieces drop at set 120BPM start!"},
+		['stack_WTF']=      {"Stack",             "WTF",            "Minimum zone requirement increases every zone!"},
+		['scanner_l']=      {"Scanner",           "LUNATIC",        "Zone lines clear away after set number of pieces!"},
+		
         ['custom_clear']=   {"Custom",            "NORMAL"},
         ['custom_puzzle']=  {"Custom",            "PUZZLE"},
     },

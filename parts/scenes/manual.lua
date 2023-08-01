@@ -1,6 +1,6 @@
 local scene={}
-
 function scene.enter()
+	time=1
     BG.set('cubes')
     local fileData=FILE.load('parts/language/manual_'..(SETTING.locale:find'zh' and 'zh' or SETTING.locale:find'ja' and 'ja' or SETTING.locale:find'vi' and 'vi' or 'en')..'.txt','-string')
     if fileData then
@@ -8,7 +8,6 @@ function scene.enter()
     else
         scene.widgetList.texts:setTexts{"[manual file not found]"}
     end
-
 end
 
 function scene.wheelMoved(_,y)
@@ -26,6 +25,12 @@ function scene.keyDown(key)
     elseif key=='escape' then
         SCN.back()
     end
+end
+
+function scene.update(dt)
+	if time>600 then loadGame('screensaver',true) end
+	print(time)
+	time=time+1
 end
 
 scene.widgetList={

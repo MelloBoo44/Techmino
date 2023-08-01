@@ -292,7 +292,7 @@ end
 
 
 local warnTime={8.6,19,27,38,41,51,64.6,119,120}
-local warnTime={0.3,0.6,1,1.3,1.6,2,2.3,119,120}
+--local warnTime={0.3,0.6,1,1.3,1.6,2,2.3,119,120}
 for i=1,#warnTime do warnTime[i]=warnTime[i]*60 end
 
 return {

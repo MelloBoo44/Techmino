@@ -270,13 +270,13 @@ ultraBone.draw=function(P,repMode)
     if UB~=1 then
         if h and not (D.hideHold and not (P.result=='win' or P.result=='lose' or repMode)) then
             if D.hideHold then gc_setColor(.6,.6,.6) end
-            ultraBone.drawActive(UB,h.bk,-5,-18)
+            ultraBone.drawActive(UB,h.bk,-5,-17)
             if D.hideHold then gc_setColor(0,1,0) end
         elseif h then
             FONT.set(62,'mono')
             GC.mStr("?",62,0)
         end
-        for i=1,P.gameEnv.nextCount do ultraBone.drawActive(UB,P.nextQueue[i].bk,11,3*i-22)end
+        for i=1,P.gameEnv.nextCount do ultraBone.drawActive(UB,P.nextQueue[i].bk,11,3*i-20)end
     end
     if D.rollStarted then ultraBone.drawRoll(P)
     else ultraBone.drawLvl(D.pt,D.target)end
@@ -292,6 +292,7 @@ end
 
 
 local warnTime={8.6,19,27,38,41,51,64.6,119,120}
+local warnTime={0.3,0.6,1,1.3,1.6,2,2.3,119,120}
 for i=1,#warnTime do warnTime[i]=warnTime[i]*60 end
 
 return {

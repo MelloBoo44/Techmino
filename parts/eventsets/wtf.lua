@@ -131,7 +131,7 @@ ultraBone.drawActive=function(UB,CB,curX,curY) -- UltraBone, Current Block, P.cu
     end
 end
 ultraBone.drawXs=function(B,fieldH,fieldBeneath,hold)
-    gc_setColor(0,1,0,(hold and .3 or .8))
+    gc_setColor(UBcolor,(hold and .3 or .8))
     local y=math.floor(fieldH+1-math.modf(B.RS.centerPos[B.id][B.dir][1]))+math.ceil(fieldBeneath/30)+(hold and .14 or 0)
     B=B.bk
     local x=math.floor(6-#B[1]*.5)
@@ -162,12 +162,12 @@ ultraBone.drawMisc=function(P)
     if P.finesseCombo>2 then
         local S=P.stat
         local str=P.finesseCombo.."x"
-        if S.finesseRate==5*S.piece then gc_setColor(1,0,0)
-        elseif S.maxFinesseCombo==S.piece then gc_setColor(1,1,0)
-        else gc_setColor(0,1,0)end
+        if S.finesseRate==5*S.piece then gc_setColor(UBcolor)
+        elseif S.maxFinesseCombo==S.piece then gc_setColor(UBcolor)
+        else gc_setColor(UBcolor)end
         gc_print(str,20,570)
     end
-    gc_setColor(0,1,0,1)
+    gc_setColor(UBcolor,1)
 
     -- Lock Delay Bar & Lock Delay Reset Counter
     if P.cur and P.lockDelay and P.lockDelay>0 then gc_rectangle('fill',150,600,300*(P.lockDelay/P.gameEnv.lock),6) end
@@ -184,7 +184,7 @@ ultraBone.drawMisc=function(P)
 end
 ultraBone.drawSpeed=function(x,y,speed)
     local needle=GC.DO{30,9,{'fRect',5,3,21,3}}
-    gc_setColor(0,1,0,1)
+    gc_setColor(UBcolor,1)
     --gc_draw(TEXTURE.dial.frame,x,y)
     gc_draw(needle,x+40,y+40,2.094+(speed<=175 and .02094*speed or 4.712-52.36/(speed-125)),nil,nil,1,1)
     FONT.set(30,'mono')GC.mStr(math.floor(speed),x+40,y+19)
@@ -215,7 +215,7 @@ ultraBone.draw=function(P,repMode)
     if UB==1 then
         for i=1,#F do for j=1,#F[i] do
             if F[i][j]~=0 then
-                gc_setColor(0,1,0,P.visTime[i][j]*0.05)
+                gc_setColor(UBcolor,P.visTime[i][j]*0.05)
                 if repMode and P.visTime[i][j]<1 then gc_setColor(.4,.4,.4,1)end
                 ultraBone.drawBlock(j,20-i)
             end
@@ -239,8 +239,9 @@ ultraBone.draw=function(P,repMode)
         end
         for i=1,#BF do for j=1,#BF[i] do
             if BF[i][j]~=0 then
-                gc_setColor(0,1,0,BF[i][j]==626 and 1 or P.visTime[i][j]*0.05)
+                gc_setColor(UBcolor,BF[i][j]==626 and 1 or P.visTime[i][j]*0.05)
                 if repMode and BF[i][j]~=626 and P.visTime[i][j]<1 then gc_setColor(.4,.4,.4,1)end
+				if P.modeData.UBlimit==1 then gc_setColor(1,0,0) end
                 local x,y=30*j+120,30*(19-i)
                 -- Up border
                 if i+1>#BF or BF[i+1][j]==0 then gc_rectangle("fill",x,y+30,30,2) end
@@ -250,10 +251,11 @@ ultraBone.draw=function(P,repMode)
                 if j>9 or BF[i][j+1]==0 then gc_rectangle("fill",x+28,y+30,2,30) end
                 -- Down border
                 if i<2 or BF[i-1][j]==0 then gc_rectangle("fill",x,y+60,30,2) end
+				if P.modeData.UBlimit==1 then gc_setColor(0,0,0) end
             end
         end end
     end
-    gc_setColor(0,1,0,1)
+    gc_setColor(UBcolor,1)
     gc_push('transform')
         gc_translate(150,600)
         if P.cur and UB==1 then ultraBone.drawActive(UB,P.cur.bk,P.curX,P.curY) end
@@ -261,7 +263,7 @@ ultraBone.draw=function(P,repMode)
         local h=P.holdQueue[1]
         if h then ultraBone.drawXs(h,P.gameEnv.fieldH,P.fieldBeneath,true) end
         gc_setStencilTest()
-        gc_setColor(0,1,0,1)
+        gc_setColor(UBcolor,1)
         if UB==1 then
             if h then ultraBone.drawActive(UB,h.bk,-4,19)end
             for i=1,P.gameEnv.nextCount do ultraBone.drawActive(UB,P.nextQueue[i].bk,12,23-3*i)end
@@ -271,7 +273,7 @@ ultraBone.draw=function(P,repMode)
         if h and not (D.hideHold and not (P.result=='win' or P.result=='lose' or repMode)) then
             if D.hideHold then gc_setColor(.6,.6,.6) end
             ultraBone.drawActive(UB,h.bk,-5,-17)
-            if D.hideHold then gc_setColor(0,1,0) end
+            if D.hideHold then gc_setColor(UBcolor) end
         elseif h then
             FONT.set(62,'mono')
             GC.mStr("?",62,0)
@@ -291,8 +293,8 @@ end
 
 
 
-local warnTime={8.6,19,27,38,41,51,64.6,119,120}
---local warnTime={0.3,0.6,1,1.3,1.6,2,2.3,119,120}
+local warnTime={8.6,19,27,38,41,51,64.6,85.6,120}
+local warnTime={0.3,0.6,1,1.3,1.6,2,2.3,2.6,120}
 for i=1,#warnTime do warnTime[i]=warnTime[i]*60 end
 
 return {
@@ -304,7 +306,7 @@ return {
             gc_translate(P.x,P.y)
         end
 		if D.ultraBone then
-            gc_setColor(0,1,0)
+            gc_setColor(UBcolor)
             gc.draw(border,-17+150,-12)
 
             ultraBone.draw(P,repMode)
@@ -345,25 +347,27 @@ return {
 		P.modeData.limitNextL=6
 		P.modeData.sInv=0
 		P.modeData.BGflash=0
+		P.modeData.UBflash=0
+		P.modeData.UBlimit=0
 		P.modeData.desync=0      --Don't show desync message multiple times
-		Mbeat=0                  
+		Mbeat=0
+		UBcolor={0,0.5,0}
         while true do
             coroutine.yield()
 			--Do every frame
-			
-			print(BGM.tell().."   "..(P.stat.frame/60)+2)
-			
 			if P.modeData.desync==0 then
 			if BGM.tell()<((P.stat.frame/60)+2)-0.2 or BGM.tell()>((P.stat.frame/60)+2)+0.2 then
 			P.modeData.desync=1
 			MES.new('warn',"Music desynced!")
 			end
 			end
-			
-			
+			--UBcolor={Mbeat/2,Mbeat,Mbeat*0.5}
+			--if P.modeData.tCycle%5==0 then UBcolor={math.random(0,100)/100,math.random(0,100)/100,math.random(0,100)/100} end
 			
 			P.modeData.tCycle=P.modeData.tCycle+1
 			if P.modeData.tCycle%20==0 and P.modeData.BGflash==1 then Mbeat=1 end
+			
+			if P.modeData.UBflash==1 then UBcolor={0,1-((P.modeData.tCycle%20)/20),0} end
 			
 			if P.modeData.bMove==1 and P.modeData.tCycle%20==0 then PLAYERS[1]:movePosition(math.random(450,550),math.random(100,200),0.75) end
 
@@ -373,6 +377,7 @@ return {
 			end
 			if P.modeData.blink==1 and P.modeData.tCycle%20==0 and P.modeData.blinkL<8 then
 			P.modeData.blinkL=P.modeData.blinkL+1
+			P:garbageRise(17,1,P:getHolePos())
 			SYSFX.newShade(2.5,P.absFieldX,P.y+0*P.size,300*P.size,600*P.size) 
 			end
 			if P.modeData.limitNext==1 and P.modeData.tCycle%80==40 and P.modeData.limitNextL>1 then
@@ -392,7 +397,7 @@ return {
             while P.modeData.tCycle%20==0 and P.stat.frame>=warnTime[P.modeData.section] do
                 if P.modeData.section<9 then
                     P.modeData.section=P.modeData.section+1
-                    playReadySFX(3,.7+P.modeData.section*.03) --debug
+                    --playReadySFX(3,.7+P.modeData.section*.03) --debug
                 else
                     --playReadySFX(0,.7+P.modeData.section*.03)
                     P:win('finish')
@@ -435,11 +440,18 @@ return {
 				end
 				
 				if P.modeData.section==8 then
+				P.modeData.UBflash=1
 				P.modeData.BGflash=0
 				P.draw=function(P,repMode)for i=1,#P.gameEnv.mesDisp do P.gameEnv.mesDisp[i](P,repMode)end end
                 P.modeData.ultraBone=2
-                P.modeData.waiting=1000 -- wtf is this
 				end
+				
+				if P.modeData.section==9 then
+				P.modeData.UBflash=0
+				UBcolor={0,0,0}
+				P.modeData.UBlimit=1
+				end
+				
             end
         end
     end,

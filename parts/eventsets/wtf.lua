@@ -241,7 +241,7 @@ ultraBone.draw=function(P,repMode)
             if BF[i][j]~=0 then
                 gc_setColor(UBcolor,BF[i][j]==626 and 1 or P.visTime[i][j]*0.05)
                 if repMode and BF[i][j]~=626 and P.visTime[i][j]<1 then gc_setColor(.4,.4,.4,1)end
-				if P.modeData.UBlimit==1 then gc_setColor(1,0,0) end
+				if P.modeData.UBlimit==1 then gc_setColor(1,0,0,0.66-((P.modeData.tCycle%20)/20)) end
                 local x,y=30*j+120,30*(19-i)
                 -- Up border
                 if i+1>#BF or BF[i+1][j]==0 then gc_rectangle("fill",x,y+30,30,2) end
@@ -294,7 +294,7 @@ end
 
 
 local warnTime={8.6,19,27,38,41,51,64.6,85.6,120}
---local warnTime={0.3,0.6,1,1.3,1.6,2,2.3,2.6,120}
+--local warnTime={0.3,0.6,1,1.3,1.6,2,2.3,20.6,120}
 for i=1,#warnTime do warnTime[i]=warnTime[i]*60 end
 
 return {
@@ -361,13 +361,11 @@ return {
 			MES.new('warn',"Music desynced!")
 			end
 			end
-			--UBcolor={Mbeat/2,Mbeat,Mbeat*0.5}
-			--if P.modeData.tCycle%5==0 then UBcolor={math.random(0,100)/100,math.random(0,100)/100,math.random(0,100)/100} end
 			
 			P.modeData.tCycle=P.modeData.tCycle+1
 			if P.modeData.tCycle%20==0 and P.modeData.BGflash==1 then Mbeat=1 end
 			
-			if P.modeData.UBflash==1 then UBcolor={0,1-((P.modeData.tCycle%20)/20),0} end
+			if P.modeData.UBflash==1 then UBcolor={0,1,0,1-((P.modeData.tCycle%20)/20)} end
 			
 			if P.modeData.bMove==1 and P.modeData.tCycle%20==0 then PLAYERS[1]:movePosition(math.random(450,550),math.random(100,200),0.75) end
 
@@ -397,9 +395,7 @@ return {
             while P.modeData.tCycle%20==0 and P.stat.frame>=warnTime[P.modeData.section] do
                 if P.modeData.section<9 then
                     P.modeData.section=P.modeData.section+1
-                    --playReadySFX(3,.7+P.modeData.section*.03) --debug
                 else
-                    --playReadySFX(0,.7+P.modeData.section*.03)
                     P:win('finish')
                     return
                 end
@@ -448,7 +444,7 @@ return {
 				
 				if P.modeData.section==9 then
 				P.modeData.UBflash=0
-				UBcolor={0,0,0}
+				UBcolor={0,0,0,0}
 				P.modeData.UBlimit=1
 				end
 				

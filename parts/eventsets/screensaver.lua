@@ -17,19 +17,6 @@ return {
 			
 			
 			PLAYERS[1]:movePosition(P.modeData.bx,P.modeData.by,0.5)
-			love.graphics.rectangle('line',0,0,600,600)
 		end
 	end,
-	--fkey1=function(P) PLAYERS[1]:movePosition(P.modeData.bx,P.modeData.by,0.5) end,
-	
-	
-	mesDisp=function(P)
-        setFont(55)
-    end,
-	
-
-    hook_drop=function(P)
-	--if P.holeRND:random(1,4)==4 then PLAYERS[1]:setPosition(520,140,.18) end
-	--PLAYERS[1]:setPosition(520,140,1*(P.stat.frame/1000))
-    end
 }

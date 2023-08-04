@@ -926,7 +926,7 @@ return {
         ['lockout']=        {"Lockout",           "",               "Clear randomly selected types of clears quickly!"},
 		['rhythm_u']=       {"Rhythm",            "ULTIMATE",       "Pieces drop at set 120BPM start!"},
 		['stack_WTF']=      {"Stack",             "WTF",            "Minimum zone requirement increases every zone!"},
-		['scanner_l']=      {"Scanner",           "LUNATIC",        "Zone lines clear away after set number of pieces!"},
+		['scanner_l']=      {"Scanner",           "LUNATIC",        "Zone lines clear away after\n a set number of pieces!\n Originally by hanamielle."},
 		
         ['custom_clear']=   {"Custom",            "NORMAL"},
         ['custom_puzzle']=  {"Custom",            "PUZZLE"},

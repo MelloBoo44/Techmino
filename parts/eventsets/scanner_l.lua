@@ -1,3 +1,4 @@
+--Originally by hanamielle
 return{
     fieldH=12,
     fillClear=false,

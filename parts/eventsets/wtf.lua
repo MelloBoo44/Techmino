@@ -339,6 +339,7 @@ return {
         P.modeData.section=1
 		P.modeData.tCycle=0
 		P.modeData.bMove=0
+		P.modeData.bSize=.75
 		P.modeData.s4line=0
 		P.modeData.s4lineL=0
 		P.modeData.blink=0
@@ -367,7 +368,7 @@ return {
 			
 			if P.modeData.UBflash==1 then UBcolor={0,1,0,1-((P.modeData.tCycle%20)/20)} end
 			
-			if P.modeData.bMove==1 and P.modeData.tCycle%20==0 then PLAYERS[1]:movePosition(math.random(450,550),math.random(100,200),0.75) end
+			if P.modeData.bMove==1 and P.modeData.tCycle%20==0 then PLAYERS[1]:movePosition((340+(600-(600*P.modeData.bSize))/2)+(math.random(100)-50),(60+(600-(600*P.modeData.bSize))/2)+(math.random(100)-50),P.modeData.bSize) end
 
 			if P.modeData.s4line==1 and P.modeData.tCycle%20==0 and P.modeData.s4lineL~=8 then 
 			P:garbageRise(17,1,P:getHolePos()) 

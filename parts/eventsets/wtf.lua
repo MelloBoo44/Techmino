@@ -337,7 +337,9 @@ return {
 	hook_die=function(P)
 		if BGsolid==1 then 
 			cc=P:clearFilledLines(1,#P.field)
-			MES.new('warn',cc)
+			--MES.new('warn',cc)
+			if cc>19 then P.modeData.rank=P.modeData.rank+1 end
+			if P.stat.row>99 then P.modeData.rank=P.modeData.rank+1 end
 			P.stat.score=P.stat.score+(cc*1000)
 			P:win()
 		end
@@ -360,6 +362,7 @@ return {
 		P.modeData.limitNextL=6
 		P.modeData.sInv=0
 		P.modeData.BGflash=0
+		P.modeData.rank=0
 		BGsolid=0
 		P.modeData.UBflash=0
 		P.modeData.UBlimit=0
@@ -453,6 +456,7 @@ return {
 				end
 				
 				if P.modeData.section==8 then
+				P.modeData.rank=P.modeData.rank+1
 				P.modeData.UBflash=1
 				P.modeData.BGflash=0
 				P.draw=function(P,repMode)for i=1,#P.gameEnv.mesDisp do P.gameEnv.mesDisp[i](P,repMode)end end
@@ -466,6 +470,8 @@ return {
 				end
 				
 				if P.modeData.section==10 then
+				P.modeData.rank=P.modeData.rank+1
+				if P.garbageBeneath==0 then P.modeData.rank=P.modeData.rank+1 end
 				SFX.play('ren_mega')
 				P.gameEnv.freshLimit=1e99
 				P:act_hardDrop()

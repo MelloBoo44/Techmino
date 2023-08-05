@@ -9,12 +9,12 @@ return {
     scoreDisp=function(D) return tostring(D[1]) end,
     comp=function(a,b) return a[1]>b[1] end,
     getRank=function(P)
-        local T=P.stat.score
+        local r=P.modeData.rank
         return
-        T>=62000 and 5 or
-        T>=50000 and 4 or
-        T>=26000 and 3 or
-        T>=10000 and 2 or
-        T>=6200 and 1
+        r>=5 and 5 or
+        r>=4 and 4 or
+        r>=3 and 3 or
+        r>=2 and 2 or
+        r>=1 and 1
     end,
 }

@@ -203,7 +203,11 @@ ultraBone.drawRoll=function(P)
 	local t=P.stat.frame/60
     local T=("%.1f"):format(120-t)
     --local T=D.rollStartTime+60-P.stat.time
-    GC.mStr(T,65,250)
+	if BGsolid==0 then
+	GC.mStr(T,65,250)
+	else
+	GC.mStr("0.0",65,250)
+	end
 end
 ultraBone.draw=function(P,repMode)
     local D=P.modeData
@@ -293,12 +297,11 @@ end
 
 
 
-local warnTime={8.6,19,27,38,41,51,64.6,85.6,120}
---local warnTime={0.3,0.6,1,1.3,1.6,2,2.3,20.6,120}
+local warnTime={8.6,19,27,38,41,51,64.6,85.6,120,1e99}
+--local warnTime={0.3,0.6,1,1.3,1.6,2,2.3,3,5,1e99}
 for i=1,#warnTime do warnTime[i]=warnTime[i]*60 end
 
 return {
-		
     mesDisp=function(P)
 		D=P.modeData
         if D.ultraBone then
@@ -331,10 +334,19 @@ return {
         GC.mStr(T,63,268)
 		end
     end,
+	hook_die=function(P)
+		if BGsolid==1 then 
+			cc=P:clearFilledLines(1,#P.field)
+			MES.new('warn',cc)
+			P.score1=P.score1+(cc*1000)
+			P:win()
+		end
+	end,
     task=function(P)
         BGM.set('all','seek',0)
 		P.modeData.ultraBone=false
 		P.modeData.hideHold=false
+		P.gameEnv.fillClear=true
 		P.frameRun=60            --Set game start delay for this mode to 2 seconds to sync BGM correctly
         P.modeData.section=1
 		P.modeData.tCycle=0
@@ -348,6 +360,7 @@ return {
 		P.modeData.limitNextL=6
 		P.modeData.sInv=0
 		P.modeData.BGflash=0
+		BGsolid=0
 		P.modeData.UBflash=0
 		P.modeData.UBlimit=0
 		P.modeData.desync=0      --Don't show desync message multiple times
@@ -355,8 +368,9 @@ return {
 		UBcolor={0,0.5,0}
         while true do
             coroutine.yield()
-			--Do every frame
-			if P.modeData.desync==0 then
+			-- Do every frame
+			
+			if P.modeData.desync==0 and P.modeData.section~=10 then
 			if BGM.tell()<((P.stat.frame/60)+2)-0.2 or BGM.tell()>((P.stat.frame/60)+2)+0.2 then
 			P.modeData.desync=1
 			MES.new('warn',"Music desynced!")
@@ -368,7 +382,9 @@ return {
 			
 			if P.modeData.UBflash==1 then UBcolor={0,1,0,1-((P.modeData.tCycle%20)/20)} end
 			
-			if P.modeData.bMove==1 and P.modeData.tCycle%20==0 then PLAYERS[1]:movePosition((340+(600-(600*P.modeData.bSize))/2)+(math.random(100)-50),(60+(600-(600*P.modeData.bSize))/2)+(math.random(100)-50),P.modeData.bSize) end
+			if P.modeData.bMove==1 and P.modeData.tCycle%20==0 then 
+			PLAYERS[1]:movePosition((340+(600-(600*P.modeData.bSize))/2)+(math.random(100)-50),(60+(600-(600*P.modeData.bSize))/2)+(math.random(100)-50),P.modeData.bSize) 
+			end
 
 			if P.modeData.s4line==1 and P.modeData.tCycle%20==0 and P.modeData.s4lineL~=8 then 
 			P:garbageRise(17,1,P:getHolePos()) 
@@ -394,7 +410,7 @@ return {
 			
 			--Do on new section + beat timed
             while P.modeData.tCycle%20==0 and P.stat.frame>=warnTime[P.modeData.section] do
-                if P.modeData.section<9 then
+                if P.modeData.section<10 then
                     P.modeData.section=P.modeData.section+1
                 else
                     P:win('finish')
@@ -447,6 +463,21 @@ return {
 				P.modeData.UBflash=0
 				UBcolor={0,0,0,0}
 				P.modeData.UBlimit=1
+				end
+				
+				if P.modeData.section==10 then
+				SFX.play('ren_mega')
+				P.gameEnv.freshLimit=1e99
+				P:act_hardDrop()
+				TABLE.cut(P.field)
+				P.modeData.UBlimit=0
+				UBcolor={0,0,0,1}
+				BGsolid=1
+				P.gameEnv.lock=1e99
+				P.gameEnv.fillClear=false
+				--P.waiting=120 why you no work >:( 
+				BGM.stop()
+				BGM.play('end')
 				end
 				
             end

@@ -9,5 +9,8 @@ function back.draw()
 	Mbeat=Mbeat-0.1
     else GC.clear(0,0,0)
     end
+	if BGsolid==1 then
+	GC.clear(1,1,1)
+	end
 end
 return back

@@ -338,7 +338,7 @@ return {
 		if BGsolid==1 then 
 			cc=P:clearFilledLines(1,#P.field)
 			MES.new('warn',cc)
-			P.score1=P.score1+(cc*1000)
+			P.stat.score=P.stat.score+(cc*1000)
 			P:win()
 		end
 	end,

@@ -5,7 +5,7 @@ return {
         bg='wtf',bgm='malate',
     },
     slowMark=true,
-    score=function(P) return {P.stat.score} end,
+    score=function(P) return {P.modeData.rank} end,
     scoreDisp=function(D) return tostring(D[1]) end,
     comp=function(a,b) return a[1]>b[1] end,
     getRank=function(P)

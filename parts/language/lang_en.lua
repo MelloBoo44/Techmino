@@ -68,6 +68,7 @@ return {
     ai_prebag="AI is incompatible with custom sequences that contain non-tetrominoes.",
     ai_mission="AI is incompatible with custom missions.",
     switchSpawnSFX="Please turn on the block spawn SFX!",
+	switchBackground="Please enable the default background!",
     needRestart="Restart to apply all changes.",
 
     loadError_errorMode="'$1' loading failed: no load mode '$2'",

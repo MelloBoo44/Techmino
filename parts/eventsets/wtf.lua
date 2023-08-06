@@ -372,6 +372,11 @@ return {
         while true do
             coroutine.yield()
 			-- Do every frame
+		
+			if SETTING.bg~='on' then
+				MES.new('warn',text.switchBackground)
+				P:lose()
+			end
 			
 			if P.modeData.desync==0 and P.modeData.section~=10 then
 			if BGM.tell()<((P.stat.frame/60)+2)-0.2 or BGM.tell()>((P.stat.frame/60)+2)+0.2 then

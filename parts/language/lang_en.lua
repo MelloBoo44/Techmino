@@ -924,6 +924,7 @@ return {
         ['infinite']=       {"Infinite",          "",               "Just a sandbox"},
         ['infinite_dig']=   {"Infinite: Dig",     "",               "Dig-diggin’-dug"},
         ['marathon_inf']=   {"Marathon",          "INFINITE",       "Infinite marathon."},
+		
         ['lockout']=        {"Lockout",           "",               "Clear randomly selected types of clears quickly!"},
 		['rhythm_u']=       {"Rhythm",            "ULTIMATE",       "Pieces drop at set 120BPM start!"},
 		['stack_WTF']=      {"Stack",             "WTF",            "Minimum zone requirement increases every zone!"},
@@ -934,8 +935,8 @@ return {
         ['custom_puzzle']=  {"Custom",            "PUZZLE"},
     },
     getTip={refuseCopy=true,
-        "“TechminoWTF.app” cannot be opened because the developer has skill issue.",
-        "“TechminoWTF.app” will damage your computer. You should move it to the Bin.",
+        "“TechminoWTF.app” cannot be opened because you have a skill issue.",
+        "“TechminoWTF.app” will damage you. You should play Techmino instead.",
         "A choke a day keeps record away",
         "dont die in sprint 10l",
         "Be sure to give it your best shot again today!",

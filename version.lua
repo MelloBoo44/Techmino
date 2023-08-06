@@ -3,5 +3,5 @@ return {
     ["code"]=1715,
     ["string"]="WTF",
     ["room"]="ver A-9",
-    ["name"]="Release-v1.1",
+    ["name"]="Release-v1.2",
 }

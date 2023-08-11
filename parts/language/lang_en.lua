@@ -917,7 +917,7 @@ return {
         ['backfire_h']=     {"Backfire",          "HARD",           "Hold back the backfiring garbage lines"},
         ['backfire_l']=     {"Backfire",          "LUNATIC",        "Hold back the backfiring garbage lines"},
         ['backfire_u']=     {"Backfire",          "WTF",       		"Multiplied backfire!"},
-        ['sprintAtk']=      {"Sprint",            "100 Attack WTF", "Send 100 lines in under 30s!"},
+        ['sprintAtk']=      {"Sprint",            "100 Attack",     "Send 100 lines!"},
         ['sprintEff']=      {"Sprint",            "Efficiency",     "Send more attack in 40lines!"},
         ['zen']=            {'Zen',               "200",            "A 200-line run without a time limit"},
         ['ultra']=          {'Ultra',             "EXTRA",          "A 2-minute score attack"},

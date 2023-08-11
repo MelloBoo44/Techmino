@@ -11,11 +11,11 @@ return {
         if P.stat.atk<100 then return end
         local T=P.stat.time
         return
-        T<18 and 5 or
-        T<20 and 4 or
-        T<22 and 3 or
-        T<25 and 2 or
-        T<30 and 1 or
+        T<40 and 5 or
+        T<50 and 4 or
+        T<70 and 3 or
+        T<100 and 2 or
+        T<150 and 1 or
         0
     end,
 }

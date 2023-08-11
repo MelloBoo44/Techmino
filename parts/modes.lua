@@ -1,9 +1,8 @@
 return {
     {name='sprint_10l',    x=0,        y=0,        size=40,shape=1,icon="sprint1",         unlock={'sprint_40l','lockout','stack_WTF','scanner_l'}},
 	
-	{name='sprint_40l',    x=0,        y=-300,     size=40,shape=1,icon="sprint2",         unlock={'sprintAtk','wtf'}},
-	{name='sprintAtk',     x=-150,     y=-600,     size=40,shape=1,icon="sprint2"},
-	{name='wtf',           x=150,      y=-600,     size=40,shape=1,icon="master_ex"},
+	{name='sprint_40l',    x=0,        y=-300,     size=40,shape=1,icon="sprint2",         unlock={'wtf'}},
+	{name='wtf',           x=0,      y=-600,     size=40,shape=1,icon="master_ex"},
 
 	{name='lockout',       x=0,        y=300,      size=40,shape=1,icon="bigbang",         unlock={'secret_grade','round_u'}},
 	{name='secret_grade',  x=-150,     y=600,      size=40,shape=1,icon="secret_grade"},

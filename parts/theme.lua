@@ -5,6 +5,7 @@ local themeColor={
     xmas={COLOR.lR,COLOR.Z,COLOR.lG},
     sprfes={COLOR.lR,COLOR.O,COLOR.lY},
     halloween={COLOR.lH,COLOR.O,{COLOR.hsv(.76,.50,.42)},{COLOR.hsv(.33,.80,.42)}},
+	wtf={{COLOR.hsv(1,0,0.7)},{COLOR.hsv(1,0,.55)},{COLOR.hsv(1,0,.4)}},
 }
 
 function THEME.calculate(Y,M,D)
@@ -47,6 +48,11 @@ function THEME.calculate(Y,M,D)
             (M=='03' or M=='04' or M=='05' or M=='06') and 'zday1' or
             (M=='07' or M=='08' or M=='09' or M=='10') and 'zday2' or
             (M=='11' or M=='12' or M=='01' or M=='02') and 'zday3'
+        ) or
+		
+		-- wtf
+		(
+            (math.random(0,26)==1) and 'wtf'
         ) or
 
         -- Normal
@@ -98,7 +104,17 @@ function THEME.set(theme)
     elseif theme=='fool' then
         BG.setDefault('blockrain')
         BGM.setDefault('how feeling')
-    else
+    elseif theme=='wtf' then
+		BG.setDefault('blockhole')
+		BGM.setDefault('down')
+		RANK_COLORS={
+		{.3,.3,.3},
+		{.4,.4,.4},
+		{.5,.5,.5},
+		{.6,.6,.6},
+		{.7,.7,.7},
+		}
+	else
         return
     end
     THEME.cur=theme

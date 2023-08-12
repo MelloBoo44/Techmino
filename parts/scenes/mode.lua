@@ -201,15 +201,6 @@ function scene.update()
     end
 end
 
--- noRank/B/A/S/U/X
-local baseRankColor={
-    [0]={0,0,0,.3},
-    {.2,.4,.6,.3},
-    {.6,.85,.65,.3},
-    {.85,.8,.3,.3},
-    {.85,.5,.4,.3},
-    {.85,.3,.8,.3},
-}
 local function _drawModeShape(M,S,drawType)
     if M.shape==1 then-- Rectangle
         gc_rectangle(drawType,M.x-S,M.y-S,2*S,2*S)
@@ -220,6 +211,26 @@ local function _drawModeShape(M,S,drawType)
     end
 end
 function scene.draw()
+	-- noRank/B/A/S/U/X
+	--Code was intentionally moved here to run multiple times to make sure it updates
+	baseRankColor={
+		[0]={0,0,0,.3},
+		{.2,.4,.6,.3},
+		{.6,.85,.65,.3},
+		{.85,.8,.3,.3},
+		{.85,.5,.4,.3},
+		{.85,.3,.8,.3},
+	}
+	if THEME.cur=='wtf' then
+	baseRankColor={
+		[0]={0,0,0,.3},
+		{.2,.2,.2,.3},
+		{.3,.3,.3,.3},
+		{.4,.4,.4,.3},
+		{.5,.5,.5,.3},
+		{.6,.6,.6,.3},
+	}
+	end
     local _
     gc_push('transform')
     gc_translate(640,360)

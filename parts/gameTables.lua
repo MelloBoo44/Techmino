@@ -720,7 +720,7 @@ do-- Userdata tables
         {ava=false, x=1150,    y=50,     r=30},-- zangiLeft
         {ava=false, x=1210,    y=50,     r=30},-- zangiRight
     }
-    RANKS={sprint_10l=0}-- Ranks of modes
+    RANKS={sprint_10l=0,confusion=0,cascade=0}-- Ranks of modes
     STAT={
         version=VERSION.code,
         run=0,game=0,time=0,frame=0,

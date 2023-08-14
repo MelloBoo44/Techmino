@@ -52,7 +52,7 @@ function THEME.calculate(Y,M,D)
 		
 		-- wtf
 		(
-            (math.random(0,26)==1) and 'wtf'
+            (math.random(0,262)==1) and 'wtf'
         ) or
 
         -- Normal

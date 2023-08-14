@@ -14,8 +14,8 @@ return {
 	
 	{name='stack_WTF',     x=300,      y=0,        size=40,shape=1,icon="mess",            unlock={'rhythm_u'}},
 	{name='rhythm_u',      x=600,      y=0,        size=40,shape=1,icon="rhythm"},
-	-- {name='sprint_20l',    x=-200,      y=200,      size=50,shape=1,icon="sprint1"},
-    -- {name='sprint_100l',   x=-400,      y=200,      size=50,shape=1,icon="sprint2"},
+	{name='confusion',    x=-600,      y=-600,     size=40,shape=1,icon="hidden2"},
+    {name='cascade',   x=600,      y=-600,         size=40,shape=1,icon="tech"},
     -- {name='sprint_400l',   x=-600,      y=200,      size=40,shape=1,icon="sprint3"},
     -- {name='sprint_1000l',  x=-800,      y=200,      size=40,shape=1,icon="sprint3"},
 

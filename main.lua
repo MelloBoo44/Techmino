@@ -284,6 +284,7 @@ IMG.init{
     },
     electric='media/image/characters/electric.png',
     hbm='media/image/characters/hbm.png',
+	crash='media/image/crash.png',
 
     lanterns={
         'media/image/lanterns/1.png',

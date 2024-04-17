@@ -40,9 +40,9 @@ return {
 
             -- Figures
             local t=TIME()
-            GC.setColor(1,1,1,.5+.2*sin(t))
-            GC.draw(IMG.hbm,-276,-86,0,1.5)
-            GC.draw(IMG.electric,476,152,0,2.6)
+            GC.setColor(1,1,1,1)
+            --GC.draw(IMG.hbm,-276,-86,0,1.5)
+            GC.draw(IMG.crash,-400,-100,0,0.75)
 
             -- Texts
             GC.setColor(.8,.8,.8)
